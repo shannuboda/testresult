@@ -1,0 +1,174 @@
+<html>
+	<head>
+		
+		<title>Student Results</title>
+		<style>
+#subjects {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#subjects td, #subjects th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#subjects tr:nth-child(even){background-color: #f2f2f2;}
+
+#subjects tr:hover {background-color: #ddd;}
+
+#subjects th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: RED;
+  color: white;
+}
+</style>
+		<script type="text/javascript">
+		
+		function getReport(){
+
+					var grade = "";	 //declare a variable for grade
+					var  result="";	 //declare a variable for result
+
+					/*//read the marks
+					var engMarks = document.getElementById('txtEnglish').value;
+					var kannadaMarks = document.getElementById('txtKannada').value;
+					var mathsMarks = document.getElementById('txtMaths').value;
+					var scienceMarks = document.getElementById('txtScience').value;
+					
+					//calculate the total marks (using double notation technique)
+					var totalMarks = (((engMarks) * (kannadaMarks) )- (-(mathsMarks) * (scienceMarks)))/18.5;
+					
+					//get the average marks
+					var averageMarks = (totalMarks / 10) * 100;					
+					*/
+					//find the grade and result using the ternary operator inside the switch statement					
+					var acc = document.getElementById('acc').value;
+  var acg = document.getElementById('acg').value;
+  var pspc = document.getElementById('pspc').value;
+  var pspg = document.getElementById('pspg').value;
+  var psplc = document.getElementById('psplc').value;
+  var psplg = document.getElementById('psplg').value;
+  var cc = document.getElementById('cc').value;
+  var cg = document.getElementById('cg').value;
+  var clc = document.getElementById('clc').value;
+  var clg = document.getElementById('clg').value;
+  var glc = document.getElementById('glc').value;
+  var glg = document.getElementById('glg').value;
+  var wsc = document.getElementById('wsc').value;
+  var wsg = document.getElementById('wsg').value;
+  var sc = document.getElementById('sc').value;
+
+
+  
+
+
+  tot = ((parseFloat(acc) * parseFloat(acg)) -(- (parseFloat(pspc) * parseFloat(pspg))) -(- (parseFloat(psplc) * parseFloat(psplg))) -(- (parseFloat(cc) * parseFloat(cg))) -(- (parseFloat(clc) * parseFloat(clg)))-(- (parseFloat(glc) * parseFloat(glg)))-(- (parseFloat(wsc) * parseFloat(wsg))))/parseFloat(sc);
+   //var tot1=totalGrades / parseFloat(sc);
+  
+   var perc = parseFloat((tot/10) * 100);
+  
+
+					//display the results	
+					document.getElementById('txtStudentName').value = document.getElementById('txtName').value;
+					document.getElementById('txtStudentClass').value = document.getElementById('txtClass').value;
+					document.getElementById('txtTotalMarks').value = tot;
+					document.getElementById('txtAvgMarks').value = perc;
+					document.getElementById('txtGrade').value = grade;
+					document.getElementById('txtResult').value = result;
+		
+		} //end of function getReport
+		
+		</script>
+	</head>
+	<body>		
+			<fieldset style="width:600px">
+	    		<legend><b>Student Input Section:</b></legend>
+				Name:<input type="text" id="txtName"> &nbsp;&nbsp;
+				Class:<input type="text" id="txtClass"> <br/><br/>
+				<table id="subjects">
+  <tr>
+    <th>SUBJECT NAME</th>
+    <th>SUBJECT GRADE POINT</th>
+    <th>SUBJECT CREDITS</th>
+  </tr>
+  <tr>
+    <td><p><b>ALGEBRA & CALCULAS</b></p></td>
+    <td> <input  type="text" placeholder="Enter Grade Point Here" id="acg" value="1"></td>
+    <td> <input type="text" placeholder="Enter Credits" id="acc" value="1"></td>
+  </tr>
+  <tr>
+    <td><p><b>PROBLEM SOLVING & PROGRAMMING</b></p></td>
+    <td><input  type="text" placeholder="Enter Grade Point Here" id="pspg" value="1"></td>
+    <td> <input type="text" placeholder="Enter Credits" id="pspc" value="1"></td>
+  </tr>
+  <tr>
+    <td><p><b>PROBLEM SOLVING & PROGRAMMING LAB</b></p></td>
+    <td><input  type="text" placeholder="Enter Grade Point Here" id="psplg" value="1"></td>
+    <td> <input type="text" placeholder="Enter Credits" id="psplc" value="1"></td>
+  </tr>
+  
+  <tr>
+    <td><p><b>CHEMISTRY</b></p></td>
+    <td><input  type="text" placeholder="Enter Grade Point Here" id="cg" value="1"></td>
+    <td> <input type="text" placeholder="Enter Credits" id="cc" value="1"></td>
+  </tr>
+  
+  <tr>
+    <td><p><b>CHEMISTRY LAB</b></p></td>
+    <td><input  type="text" placeholder="Enter Grade Point Here" id="clg" value="1"></td>
+    <td> <input type="text" placeholder="Enter Credits" id="clc" value="1"></td>
+  </tr>
+  </tr>
+   <tr>
+    <td><p><b>GRAPHICS LAB</b></p></td>
+    <td><input  type="text" placeholder="Enter Grade Point Here" id="glg" value="1"></td>
+    <td> <input type="text" placeholder="Enter Credits" id="glc" value="1"></td>
+  </tr>
+  
+  <tr>
+    <td><p><b>WORKSHOP LAB</b></p></td>
+    <td><input  type="text" placeholder="Enter Grade Point Here" id="wsg" value="1"></td>
+    <td> <input type="text" placeholder="Enter Credits" id="wsc" value="1"></td>
+  </tr>
+  
+  <h3> ENTER TOTAL CREDITS OF WHOLE SEMESTER</h3>
+  <input  type="text" placeholder="Enter Credits" id="sc" value="1"></br></br>
+     </table>
+   <p id="showData" >  </p>
+  </br></br></br><hr size="2" color="red"></hr>
+  <h1> <font size="5" color="red">
+     <table border="1">
+   
+			  <tr> <td> Grade </td><td></td><td></td><td></td><td></td><td></td> <td></td><td> Grade Point</td></tr>
+			  <tr> <td> S </td><td></td><td></td><td></td><td></td><td></td><td></td> <td> 10</td></tr>
+			  <tr> <td> A </td><td></td><td></td><td></td><td></td><td></td> <td></td><td> 09</td></tr>
+			  <tr> <td> B </td><td></td><td></td><td></td><td></td><td></td> <td></td><td> 08</td></tr>
+			  <tr> <td> C </td><td></td><td></td><td></td><td></td><td></td> <td></td><td> 07</td></tr>
+			  <tr> <td> D </td><td></td><td></td><td></td><td></td><td></td> <td></td><td> 06</td></tr>
+			  <tr> <td> E </td><td></td><td></td><td></td><td></td><td></td> <td></td><td> 05</td></tr>
+			  <tr> <td> F </td><td></td><td></td><td></td><td></td><td></td> <td></td><td> 0</td></tr>
+			  </table>
+			  </font></h1>
+			  <hr></hr>
+			  </br></br></br>
+				<input type="button" value="Get Result" onClick="getReport();">
+			</fieldset>
+			
+				<h2>Report Card</h2>
+				
+				<table border="1">
+					<tr><td>Name</td><td><input type="text" id="txtStudentName" readonly></td></tr>
+					<tr><td>Class</td><td><input type="text" id="txtStudentClass" readonly></td></tr>
+					<tr><td>Total Marks</td><td><input type="text" id="txtTotalMarks" readonly></td></tr>
+					<tr><td>Average Marks</td><td><input type="text" id="txtAvgMarks" readonly></td></tr>
+					<tr><td>Grade</td><td><input type="text" id="txtGrade" readonly></td></tr>
+					<tr><td>Remarks</td><td><input type="text" id="txtResult" readonly></td></tr>
+				</table>
+			
+	</body>
+</html>
